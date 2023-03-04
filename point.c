@@ -5,7 +5,7 @@
  * @return
  */
 
-void swap(int, int);
+void swap(int *, int *);
 
 
 /**
@@ -15,29 +15,32 @@ void swap(int, int);
 void pointer() {
     int a = 10;
     int *p = &a;
-    printf("a在内存中的地址为: %p，值为：%d", p, *p);
+    printf("a在内存中的地址为: %p，值为：%d\n", p, *p);
+    *p = 666;
+    printf("修改后的值: %d\n", *p);
 }
 
 /**
- * ab作用域不同，所以这里打印的还是a = 10，b = 20
  * @return
  */
 int main() {
-    int a = 10, b = 20;
-    swap(a, b);
-//    printf("a = %d,b = %d", a, b);
 
     pointer();
+
+    int a = 10, b = 20;
+    swap(&a, &b);
+    printf("a与b交换后的结果：a = %d,b = %d\n", a, b);
+
 }
 
 /**
- * a和b进行交换
+ * a和b交换
  * @param a
  * @param b
  */
-void swap(int a, int b) {
-    int temp = a;
-    a = b;
-    b = temp;
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
