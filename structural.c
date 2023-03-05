@@ -23,8 +23,6 @@ struct Student {
 int main() {
     //第一种方式，局部初始化
     struct Student student = {1, 18, "小明"};
-    //数组
-    struct Student arr[] = {{3, 20, "小红"}, {4, 16, "小王"}};
 
     //结构体变量.数据名称 (这里.也是一种运算符) 就可以访问结构体中存放的对应的数据了
     printf("id = %d, age = %d, name = %s\n", s.id, s.age, s.name);
